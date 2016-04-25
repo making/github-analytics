@@ -50,11 +50,12 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.springframework.github</groupId>
-			<artifactId>github-webhook-stub</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<groupId>io.codearte.accurest</groupId>
+			<artifactId>stub-runner-messaging-stream</artifactId>
 			<scope>test</scope>
+			<version>1.0.7-SNAPSHOT</version>
 		</dependency>
+
 	</dependencies>
 	
 	<dependencyManagement>

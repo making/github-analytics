@@ -1,11 +1,11 @@
 package org.springframework.github;
 
+import io.codearte.accurest.stubrunner.StubTrigger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.cloud.stream.messaging.Sink;
-import org.springframework.cloud.stream.test.stub.StubMessageProducer;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageHeaders;
 import org.springframework.messaging.support.MessageBuilder;
@@ -22,8 +22,7 @@ public class AnalyticsApplicationTests {
 	@Autowired
 	private Sink sink;
 
-	@Autowired
-	private StubMessageProducer messageProducer;
+	@Autowired StubTrigger stubTriggerer;
 
 	@Test
 	public void testWithMarshalledPojo() throws JsonProcessingException {
@@ -38,12 +37,12 @@ public class AnalyticsApplicationTests {
 
 	@Test
 	public void testWithV1StubData() {
-		this.messageProducer.produce("v1/issue-created.json", MimeTypeUtils.APPLICATION_JSON);
+		this.stubTriggerer.trigger("issue_created_v1");
 	}
 
 	@Test
 	public void testWithV2StubData() {
-		this.messageProducer.produce("v2/issue-created.json", MimeTypeUtils.APPLICATION_JSON);
+		this.stubTriggerer.trigger("issue_created_v2");
 	}
 
 }
