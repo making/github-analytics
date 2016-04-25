@@ -1,2 +1,1 @@
-#spring.cloud.stream.bindings.input: output
-stubrunner.stubs.ids: io.springframework.github:github-webhook:stubs
+stubrunner.stubs.ids: org.springframework.github:github-webhook:stubs
